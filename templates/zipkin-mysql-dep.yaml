@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: zipkin-mysql
+  namespace: dev
   labels:
     name: zipkin-mysql
 spec:

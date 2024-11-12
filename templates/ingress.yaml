@@ -6,6 +6,7 @@ metadata:
   labels:
 {{ toYaml .Values.ingress.labels | indent 4 }}
   name: {{ template "fullname" .}}-socks-ingress
+  namespace: dev
 spec:
   rules:
   - http:
