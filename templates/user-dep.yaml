@@ -20,6 +20,19 @@ spec:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
       {{- end }}
     spec:
+      initContainers:
+        - name: wait-for-db
+          image: busybox
+          command:
+            - 'sh'
+            - '-c'
+            - |
+              echo "Waiting for MongoDB to be ready..."
+              until nc -z -v -w10 user-db 27017; do
+                echo "MongoDB not available yet, sleeping..."
+                sleep 1
+              done
+              echo "MongoDB is available!"
       containers:
       - name: user
         image: {{if .Values.global.registry}}{{ .Values.global.registry }}/{{end}}{{ .Values.user.image.repo }}:{{ .Values.user.image.tag }}
