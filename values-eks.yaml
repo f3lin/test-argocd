@@ -84,7 +84,7 @@ frontend:
 
 loadtest:
   replicas: 2
-  enabled: true
+  enabled: false
   image:
       repo: weaveworksdemos/load-test
       tag: 0.1.1
@@ -113,10 +113,10 @@ ordersdb:
 
 orders:
   image:
-    repo: weaveworksdemos/orders
-    tag: 0.4.7
-    # repo: f3lin/orders
-    # tag: latest
+    # repo: weaveworksdemos/orders
+    # tag: 0.4.7
+    repo: f3lin/orders
+    tag: latest
   containerPort: 80
   resources:
     limits:
@@ -244,7 +244,7 @@ zipkin:
     requests:
       cpu: 100m
       memory: 300Mi
-  enabled:  true
+  enabled:  false
   url: zipkin.dev.svc.cluster.local
 
 zipkinmysql:

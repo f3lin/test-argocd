@@ -33,12 +33,12 @@ spec:
               - SETGID
               - SETUID
           readOnlyRootFilesystem: true
-          runAsUser: 999  # Set to MongoDB's default UID
-          runAsGroup: 999 # Set to MongoDB's default GID
-        volumeMounts:
-        - mountPath: /data
-          name: session-db-storage  # Mounting the PVC here
-      volumes:
-        - name: session-db-storage
-          persistentVolumeClaim:
-            claimName: sessiondb-pvc  # Refers to the PVC
+      #     runAsUser: 999  # Set to MongoDB's default UID
+      #     runAsGroup: 999 # Set to MongoDB's default GID
+      #   volumeMounts:
+      #   - mountPath: /data
+      #     name: session-db-storage  # Mounting the PVC here
+      # volumes:
+      #   - name: session-db-storage
+      #     persistentVolumeClaim:
+      #       claimName: sessiondb-pvc  # Refers to the PVC
