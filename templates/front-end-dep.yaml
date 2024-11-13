@@ -28,7 +28,7 @@ spec:
               echo "Waiting for dependent services to be ready..."
 
               # Wait for catalogue service
-              until nc -z -v -w10 catalogue 80; do
+              until nc -z -v -w10 catalogue.dev.svc.cluster.local 80; do
                 echo "catalogue service not available yet, sleeping..."
                 sleep 5
               done
