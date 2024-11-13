@@ -206,7 +206,7 @@ userdb:
 
 user:
   image:
-    repo: f3lin/user-db
+    repo: f3lin/user
     tag: latest
     # repo: weaveworksdemos/user
     # tag: 0.4.7
