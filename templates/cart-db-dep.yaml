@@ -39,9 +39,9 @@ spec:
         - mountPath: /data/db
           name: carts-db-storage  # Mounting the PVC here
       volumes:
-        # - name: tmp-volume
-        #   emptyDir:
-        #     medium: Memory
+        - name: tmp-volume
+          emptyDir:
+            medium: Memory
         - name: carts-db-storage
           persistentVolumeClaim:
             claimName: cartsdb-pvc  # Refers to the PVC
