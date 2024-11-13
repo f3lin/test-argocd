@@ -34,17 +34,12 @@ spec:
               - SETUID
           readOnlyRootFilesystem: true
         volumeMounts:
-        - mountPath: /data/db
-          name: mongo-persistent-storage
-        - mountPath: /tmp
-          name: tmp-volume
+        - mountPath: /data/db  # Mounting the PVC here for MongoDB storage
+          name: orders-db-storage  # This matches the PVC
       volumes:
-        - name: mongo-persistent-storage
+        - name: orders-db-storage
           persistentVolumeClaim:
-            claimName: my-pvc  # The name of the PVC you created
-        - name: tmp-volume
-          emptyDir:
-            medium: Memory
+            claimName: ordersdb-pvc  # Refers to the PVC
       #   volumeMounts:
       #   - mountPath: /tmp
       #     name: tmp-volume

@@ -22,6 +22,8 @@ spec:
         ports:
         - name: redis
           containerPort: 6379
+        resources:
+{{ toYaml .Values.sessiondb.resources | indent 10 }}
         securityContext:
           capabilities:
             drop:
@@ -31,5 +33,10 @@ spec:
               - SETGID
               - SETUID
           readOnlyRootFilesystem: true
-        resources:
-{{ toYaml .Values.sessiondb.resources | indent 10 }}
+        volumeMounts:
+        - mountPath: /data
+          name: session-db-storage  # Mounting the PVC here
+      volumes:
+        - name: session-db-storage
+          persistentVolumeClaim:
+            claimName: sessiondb-pvc  # Refers to the PVC
