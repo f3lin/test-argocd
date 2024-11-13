@@ -113,10 +113,10 @@ ordersdb:
 
 orders:
   image:
-    # repo: weaveworksdemos/orders
-    # tag: 0.4.7
-    repo: f3lin/orders
-    tag: latest
+    repo: weaveworksdemos/orders
+    tag: 0.4.7
+    # repo: f3lin/orders
+    # tag: latest
   containerPort: 80
   resources:
     limits:
