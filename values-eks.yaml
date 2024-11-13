@@ -26,8 +26,8 @@ cartsdb:
       cpu: 500m
       memory: 512Mi
     limits:
-      cpu: 500m
-      memory: 512Mi
+      cpu: 800m
+      memory: 1000Mi
   persistentVolume:
     storageClass: ''
     size: 512Mi
@@ -39,11 +39,11 @@ carts:
   containerPort: 80
   resources:
     limits:
-      cpu: 300m
+      cpu: 500m
       memory: 2000Mi
     requests:
       cpu: 300m
-      memory: 2000Mi
+      memory: 1000Mi
 
 cataloguedb:  
   image:
@@ -102,11 +102,11 @@ ordersdb:
     tag: 3.4.0
   resources:
     requests:
-      cpu: 500m
+      cpu: 300m
       memory: 512Mi
     limits:
       cpu: 500m
-      memory: 512Mi
+      memory: 1000Mi
   persistentVolume:
     storageClass: ''
     size: 512Mi
@@ -124,7 +124,7 @@ orders:
       memory: 2000Mi
     requests:
       cpu: 200m
-      memory: 2000Mi
+      memory: 1000Mi
 
 payment:
   image:
@@ -134,8 +134,8 @@ payment:
   containerPort: 8080
   resources:
     limits:
-      cpu: 100m
-      memory: 100Mi
+      cpu: 300m
+      memory: 256Mi
     requests:
       cpu: 100m
       memory: 100Mi
@@ -146,8 +146,8 @@ queuemaster:
     tag: 0.3.1
   resources:
     limits:
-      cpu: 300m
-      memory: 1000Mi
+      cpu: 500m
+      memory: 2000Mi
     requests:
       cpu: 300m
       memory: 1000Mi
@@ -170,10 +170,10 @@ sessiondb:
     tag: 3.0-alpine
   resources:
     limits:
-      memory: 512Mi
+      memory: 1000Mi
       cpu: 500m
     requests:
-      memory: 256Mi
+      memory: 512Mi
       cpu: 250m
   persistentVolume:
     storageClass: ''
@@ -186,11 +186,11 @@ shipping:
   containerPort: 80
   resources:
     limits:
-      cpu: 300m
+      cpu: 800m
       memory: 2000Mi
     requests:
-      cpu: 300m
-      memory: 2000Mi
+      cpu: 500m
+      memory: 1000Mi
 
 userdb:
   image:
@@ -216,10 +216,10 @@ user:
   resources:
     limits:
       cpu: 500m
-      memory: 1000Mi
+      memory: 2000Mi
     requests:
       cpu: 300m
-      memory: 500Mi
+      memory: 1000Mi
 
 zipkincron:
   image:
