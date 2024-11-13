@@ -9,9 +9,9 @@ istio:
 
 ingress:
   annotations:
-  nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-  nginx.ingress.kubernetes.io/ssl-redirect: "true"
-  cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   # labels: {}
   host: 'test.monlabo.de'
   tlsSecretName: 'test-server-tls'
