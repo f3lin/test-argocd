@@ -18,35 +18,6 @@ spec:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
       {{- end }}
     spec:
-      # initContainers:
-      #   - name: wait-for-catalogue
-      #     image: busybox
-      #     command:
-      #       - 'sh'
-      #       - '-c'
-      #       - |
-      #         echo "Waiting for dependent services to be ready..."
-
-      #         # Wait for catalogue service
-      #         until nc -z -v -w10 catalogue 80; do
-      #           echo "catalogue service not available yet, sleeping..."
-      #           sleep 5
-      #         done
-      #         echo "catalogue service is available!"
-        # - name: wait-for-user
-        #   image: busybox
-        #   command:
-        #     - 'sh'
-        #     - '-c'
-        #     - |
-        #       echo "Waiting for dependent services to be ready..."
-
-        #       # Wait for user service
-        #       until nc -z -v -w10 user 8084; do
-        #         echo "user service not available yet, sleeping..."
-        #         sleep 5
-        #       done
-        #       echo "user service is available!"
       containers:
       - name: front-end
         image: {{if .Values.global.registry}}{{ .Values.global.registry }}/{{end}}{{ .Values.frontend.image.repo }}:{{ .Values.frontend.image.tag }}
