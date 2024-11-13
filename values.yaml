@@ -8,13 +8,13 @@ istio:
   enabled: false
 
 ingress:
-  annotations:
-    # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+#   annotations:
+#     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+#     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+#     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   # labels: {}
-  host: test.monlabo.de
-  tlsSecretName: 'test-server-tls'
+  host: app.dev.monlabo.de
+  tlsSecretName: 'wildcard-cert-tls'
 
 cartsdb:
   image:
