@@ -34,8 +34,8 @@ spec:
               - SETUID
           readOnlyRootFilesystem: true
         volumeMounts:
-        # - mountPath: /tmp
-        #   name: tmp-volume
+        - mountPath: /tmp
+          name: tmp-volume
         - mountPath: /data/db
           name: carts-db-storage  # Mounting the PVC here
       volumes:

@@ -41,9 +41,9 @@ spec:
         - mountPath: /data/db  # Mounting the PVC here for MongoDB storage
           name: orders-db-storage  # This matches the PVC
       volumes:
-        # - name: tmp-volume
-        #   emptyDir:
-        #     medium: Memory
+        - name: tmp-volume
+          emptyDir:
+            medium: Memory
         - name: orders-db-storage
           persistentVolumeClaim:
             claimName: ordersdb-pvc  # Refers to the PVC
