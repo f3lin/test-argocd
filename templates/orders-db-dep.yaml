@@ -33,8 +33,8 @@ spec:
               - SETGID
               - SETUID
           readOnlyRootFilesystem: true
-          runAsUser: 999  # Set to MongoDB's default UID
-          runAsGroup: 999 # Set to MongoDB's default GID
+          # runAsUser: 999  # Set to MongoDB's default UID
+          # runAsGroup: 999 # Set to MongoDB's default GID
         volumeMounts:
         - mountPath: /data/db  # Mounting the PVC here for MongoDB storage
           name: orders-db-storage  # This matches the PVC

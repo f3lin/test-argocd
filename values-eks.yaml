@@ -99,7 +99,7 @@ loadtest:
 ordersdb:
   image:
     repo: mongo
-    tag: 3.4
+    tag: 4.4.0
   resources:
     requests:
       cpu: 500m
