@@ -35,7 +35,7 @@ spec:
          {{- end }}
          - name: JAVA_OPTS
           #  value: {{ .Values.java.options }}
-           value: JAVA_OPTS=-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
+           value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
         resources:
 {{ toYaml .Values.orders.resources | indent 10 }}
         ports:
