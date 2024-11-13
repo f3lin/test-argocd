@@ -20,7 +20,7 @@ ingress:
 cartsdb:
   image:
     repo: mongo
-    tag: 4.4.0
+    tag: 3.4.0
   resources:
     requests:
       cpu: 500m
@@ -99,7 +99,7 @@ loadtest:
 ordersdb:
   image:
     repo: mongo
-    tag: 4.4.0
+    tag: 3.4.0
   resources:
     requests:
       cpu: 500m
@@ -113,10 +113,10 @@ ordersdb:
 
 orders:
   image:
-    # repo: weaveworksdemos/orders
-    # tag: 0.4.7
-    repo: f3lin/orders
-    tag: latest
+    repo: weaveworksdemos/orders
+    tag: 0.4.7
+    # repo: f3lin/orders
+    # tag: latest
   containerPort: 80
   resources:
     limits:
@@ -155,7 +155,7 @@ queuemaster:
 rabbitmq:
   image:
     repo: rabbitmq
-    tag: 3.6.8
+    tag: 3.6.8-management
   resources:
     limits:
       cpu: 1
@@ -167,11 +167,11 @@ rabbitmq:
 sessiondb:
   image:
     repo: redis
-    tag: alpine
+    tag: 3.0-alpine
   resources:
     limits:
-      memory: 256Mi
-      cpu: 250m
+      memory: 512Mi
+      cpu: 500m
     requests:
       memory: 256Mi
       cpu: 250m
