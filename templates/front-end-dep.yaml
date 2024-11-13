@@ -18,21 +18,21 @@ spec:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
       {{- end }}
     spec:
-      # initContainers:
-      #   - name: wait-for-catalogue
-      #     image: busybox
-      #     command:
-      #       - 'sh'
-      #       - '-c'
-      #       - |
-      #         echo "Waiting for dependent services to be ready..."
+      initContainers:
+        - name: wait-for-catalogue
+          image: busybox
+          command:
+            - 'sh'
+            - '-c'
+            - |
+              echo "Waiting for dependent services to be ready..."
 
-      #         # Wait for catalogue service
-      #         until nc -z -v -w10 catalogue.dev.svc.cluster.local 80; do
-      #           echo "catalogue service not available yet, sleeping..."
-      #           sleep 5
-      #         done
-      #         echo "catalogue service is available!"
+              # Wait for catalogue service
+              until nc -z -v -w10 catalogue 80; do
+                echo "catalogue service not available yet, sleeping..."
+                sleep 5
+              done
+              echo "catalogue service is available!"
         # - name: wait-for-user
         #   image: busybox
         #   command:
