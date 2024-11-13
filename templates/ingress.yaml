@@ -9,27 +9,22 @@ metadata:
   namespace: dev
 spec:
   ingressClassName: nginx
+  {{- if .Values.ingress.tlsSecretName }}
+  tls:
+  - hosts:
+    secretName: {{ .Values.ingress.tlsSecretName }}
+  {{- end }}
   rules:
-  - http:
+  - host: {{ template "host" . }}
+    http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+        backend:
           service:
             name: front-end
             port:
               number: 80
-        path: /
-        pathType: Prefix
-    {{- if .Values.host }}
-    host: {{ template "host" . }}
-    {{- end }}
-  {{- if .Values.ingress.tlsSecretName }}
-  tls:
-    secretName: {{ .Values.ingress.tlsSecretName }}
-    # {{- if .Values.host }}
-    # hosts:
-    # - {{ template "host" . }}
-    # {{- end }}
-  {{- end }}
 # apiVersion: networking.k8s.io/v1
 # kind: Ingress
 # metadata:
