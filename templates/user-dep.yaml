@@ -35,7 +35,7 @@ spec:
         - containerPort: {{ .Values.user.containerPort }}
         env:
         - name: MONGO_HOST
-          value: user-db:27017
+          value: user-db.dev.svc.cluster.local:27017
         {{- if .Values.zipkin.enabled }}
         - name: ZIPKIN
           value: http://{{ .Values.zipkin.url }}:9411/api/v1/spans

@@ -192,28 +192,32 @@ shipping:
 
 userdb:
   image:
-    repo: weaveworksdemos/user-db
-    tag: 0.4.0
+    repo: f3lin/user-db
+    tag: latest
+    # repo: weaveworksdemos/user-db
+    # tag: 0.4.0
   resources:
     limits:
-      cpu: 300m
+      cpu: 500m
       memory: 1000Mi
     requests:
-      cpu: 100m
-      memory: 300Mi
+      cpu: 300m
+      memory: 500Mi
 
 user:
   image:
-    repo: weaveworksdemos/user
-    tag: 0.4.7
-  containerPort: 80
+    repo: f3lin/user-db
+    tag: latest
+    # repo: weaveworksdemos/user
+    # tag: 0.4.7
+  containerPort: 8084
   resources:
     limits:
-      cpu: 300m
+      cpu: 500m
       memory: 1000Mi
     requests:
-      cpu: 100m
-      memory: 400Mi
+      cpu: 300m
+      memory: 500Mi
 
 zipkincron:
   image:
