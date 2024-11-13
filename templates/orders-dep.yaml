@@ -23,18 +23,19 @@ spec:
       containers:
       - name: orders
         image: {{if .Values.global.registry}}{{ .Values.global.registry }}/{{end}}{{ .Values.orders.image.repo }}:{{ .Values.orders.image.tag }}
-        command:
-        - /usr/local/bin/java.sh
-        - -jar
-        - ./app.jar
-        - --port={{ .Values.orders.containerPort }}
+        # command:
+        # - /usr/local/bin/java.sh
+        # - -jar
+        # - ./app.jar
+        # - --port={{ .Values.orders.containerPort }}
         env:
          {{- if .Values.zipkin.enabled }}
          - name: ZIPKIN
            value: {{ .Values.zipkin.url }}
          {{- end }}
          - name: JAVA_OPTS
-           value: {{ .Values.java.options }}
+          #  value: {{ .Values.java.options }}
+           value: JAVA_OPTS=-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
         resources:
 {{ toYaml .Values.orders.resources | indent 10 }}
         ports:
