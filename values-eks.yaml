@@ -8,10 +8,11 @@ istio:
   enabled: false
 
 ingress:
-#   annotations:
-#     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-#     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-#     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  annotations:
+    nlb.ingress.kubernetes.io/scheme: "internet-facing"
+    nlb.ingress.kubernetes.io/target-type: "ip"
+    nlb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    nlb.ingress.kubernetes.io/ssl-redirect: '443'
   # labels: {}
   host: app.eks.monlabo.de
   tlsSecretName: 'wildcard-cert-tls'
