@@ -33,6 +33,8 @@ spec:
               - SETGID
               - SETUID
           readOnlyRootFilesystem: true
+          runAsUser: 999  # Set to MongoDB's default UID
+          runAsGroup: 999 # Set to MongoDB's default GID
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
