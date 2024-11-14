@@ -14,8 +14,8 @@ ingress:
     nlb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     nlb.ingress.kubernetes.io/ssl-redirect: '443'
   # labels: {}
-  host: test.eks.monlabo.de
-  tlsSecretName: 'wildcard-cert-prod-tls'
+  host: app.prod.monlabo.de
+  tlsSecretName: 'cert-prod-tls'
 
 cartsdb:
   image:
